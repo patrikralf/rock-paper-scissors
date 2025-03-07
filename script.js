@@ -23,47 +23,56 @@ function randomNumber(min, max) {
 
 // this returns a string depending output as computer choice 
 function getComputerChoice() {
-    const computerChoiceInside = ( "Computers choice is: " )
     if (randomNumber() < 2 ) {
-        return (`${computerChoiceInside} : rock `)
+        return ("rock")
     } else if (randomNumber() > 2 ) {
-        return (`${computerChoiceInside} : paper `)
+        return ("paper")
     } else {
-        return (`${computerChoiceInside} : scissors `)
+        return ("scissors")
     }
 }
 
+
+// this prompts human choice -- scrapping this one
+function getHumanChoiceForLog() {
+   const humanChoiceInside = prompt("Your choice:")
+   return `Your choice is : ${humanChoiceInside} ` 
+}
 
 
 // this prompts human choice
 function getHumanChoice() {
-   const humanChoiceInside = prompt("Your choice:")
-   return `Your choice is : ${humanChoiceInside} `;
+    const humanChoiceGood = prompt("Your choice: ")
+    return `${humanChoiceGood}` ;
 }
 
 
-
-
 // function initiates a round  
-let humanSelection = "rock";
-const computerSelection = "rock";
-
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
 
 function playRound(humanChoice, computerChoice) {
+    alert( humanChoice + " beats " + computerChoice);
+}
+
+playRound(humanSelection, computerSelection)
+
+/*function playRound() {
     const resultOfRound = ( "The winner is" )
     if (computerSelection === ( "rock" ) ) {
         return ( "the winner is computer")
+    } else if (humanSelection === ("paper" )) {
+        return ( "winner is human" )
     } else {
         return ( "winner is none" )
     }
     }
+*/
 
+//console.log(getHumanChoice())
+//console.log(getComputerChoice())
 
-console.log(getHumanChoice())
-console.log(getComputerChoice())
-
-console.log(playRound())
 
 
 
