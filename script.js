@@ -16,34 +16,42 @@ console.log(scoreBoard())
 
 
 // this outputs a number from  1 to 3
+//function randomNumber(min, max) {
+//    return Math.floor(Math.random() * (4 - 1) + 1)
+//}
+
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (4 - 1) + 1)
 }
-
+const x = randomNumber(1, 3)
+console.log(x)
 
 // this returns a string depending output as computer choice 
 function getComputerChoice() {
-    if (randomNumber() < 2 ) {
+    if (x === 1 ) {
         return ("rock")
-    } else if (randomNumber() > 2 ) {
+    } else if (x === 2)  {
         return ("paper")
-    } else {
+    } else if (x === 3 ) {
         return ("scissors")
+    } else {
+        return (" huh? ")
     }
 }
 
-
-// this prompts human choice -- scrapping this one
-function getHumanChoiceForLog() {
-   const humanChoiceInside = prompt("Your choice:")
-   return `Your choice is : ${humanChoiceInside} ` 
-}
-
+console.log(getComputerChoice())
+//console.log(getComputerChoice())
 
 // this prompts human choice
 function getHumanChoice() {
-    const humanChoiceGood = prompt("Your choice: ")
-    return `${humanChoiceGood}` ;
+    const humanChoiceGood = prompt("Your choice: ") 
+        if (humanChoiceGood === ("paper")) {
+            return ("paper")
+        } else if (humanChoiceGood === ("rock")) { 
+            return ("rock")
+        } else (humanChoiceGood === ("scissors"))  
+            return ("scissors")
+    
 }
 
 
@@ -51,12 +59,52 @@ function getHumanChoice() {
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-
 function playRound(humanChoice, computerChoice) {
-    alert( humanChoice + " beats " + computerChoice);
+    //console.log(( humanChoice + " beats " + computerChoice))
+    if (humanChoice === "paper" && computerChoice === "rock" ) {
+        return ( humanChoice + " beats " + computerChoice + " , you win!" )
+    } else if (humanChoice === "paper" && computerChoice === "scissors" ) {
+        return ( computerChoice + " beats " + humanChoice + " , you lose!" )
+    } else if (humanChoice === "paper" && computerChoice === "paper" ) {
+        return ( "it's a draw!" )
+    
+    } else if (humanChoice === "rock" && computerChoice === "paper" ) {
+        return ( computerChoice + " beats " + humanChoice + " , you lose!" )
+    } else if (humanChoice === "rock" && computerChoice === "scissors" ) {
+        return ( humanChoice + " beats " + computerChoice + " , you win!" )
+  2  } else if (humanChoice === "rock" && computerChoice === "rock" ) {
+        return ( "it's a draw!")
+
+
+ 3  } else if (humanChoice === "scissors" && computerChoice === "rock" ) {
+        return ( computerChoice + " beats " + humanChoice + " , you lose!" )
+    } else if (humanChoice === "scissors" && computerChoice === "paper" ) {
+        return ( humanChoice + " beats " + computerChoice )
+    } else if (humanChoice === "scissors" && computerChoice === "scissors" ) {
+        return ("it's a draw!")
+    } else {
+        return ( "never heard of that..." )
+    }
 }
 
-playRound(humanSelection, computerSelection)
+
+//console.log( "computer choice is: " + getComputerChoice())
+console.log(playRound(humanSelection, computerSelection))
+
+
+
+
+
+
+
+
+
+// this prompts human choice -- scrapping this one
+function getHumanChoiceForLog() {
+    const humanChoiceInside = prompt("Your choice:")
+    return `Your choice is : ${humanChoiceInside} ` 
+ }
+ 
 
 /*function playRound() {
     const resultOfRound = ( "The winner is" )
