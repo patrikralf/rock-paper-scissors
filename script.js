@@ -5,6 +5,17 @@ const scissors = ( "scissors" );
 let humanScore = 0;
 let computerScore = 0;
 
+function addHumanScore() {
+    humanScore = 0;
+    return humanScore++;
+}
+
+function addCompuerScore() {
+    computerScore = 0;
+    return computerScore++;
+}
+
+
 // this one keeps score of each round
 function scoreBoard() {
     return (`Current score is:
@@ -24,7 +35,7 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (4 - 1) + 1)
 }
 const x = randomNumber(1, 3)
-console.log(x)
+//console.log(x)
 
 // this returns a string depending output as computer choice 
 function getComputerChoice() {
@@ -39,20 +50,31 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice())
+//console.log(getComputerChoice())
 //console.log(getComputerChoice())
 
 // this prompts human choice
+
 function getHumanChoice() {
-    const humanChoiceGood = prompt("Your choice: ") 
-        if (humanChoiceGood === ("paper")) {
+    let humanChoiceGood = prompt("Your choice: ") 
+    let humanLowerCase = humanChoiceGood.toLowerCase();
+
+    console.log("human choice is: " + humanLowerCase)
+        if (humanLowerCase === ("paper")) {
             return ("paper")
-        } else if (humanChoiceGood === ("rock")) { 
+        } else if (humanLowerCase === ("rock")) { 
             return ("rock")
-        } else (humanChoiceGood === ("scissors"))  
+        } else if (humanLowerCase === ("scissors")) {
             return ("scissors")
+        } else
+        return ("huh");
     
 }
+
+
+
+
+
 
 
 // function initiates a round  
@@ -87,15 +109,65 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+// play round function
+//1 function starts round
+//2 human is prompted to insert rock, paper or scissors
+//3 computer chooses rock, paper or scissors
+//4 function logs the human choice
+//5 depending on the winner, a point is added to either player in a variable
 
-//console.log( "computer choice is: " + getComputerChoice())
-console.log(playRound(humanSelection, computerSelection))
+// choosing winner function
+//1 if/else function that returns 9 strings depending on player and computer choice
+//2 answer will return a log stating the winner
+
+
+// adding score function
+//1 winner is decided from one of 9 if/else strings
+//2 function reads the playRound() log and returns a point 
 
 
 
+console.log( "computer choice is: " + getComputerChoice())
+//console.log(playRound(humanSelection, computerSelection))
+
+let keepScoreVariable = playRound(humanSelection, computerSelection);
+
+console.log(keepScoreVariable)
+
+function keepScore() {
+        if (keepScoreVariable === ("scissors beats paper , you lose!")) {
+            return ("1 point to computer")
+        } else if (keepScoreVariable === ("paper beats rock , you lose!")) {
+            return ("1 point to computer")
+        } else if (keepScoreVariable === ("rock beats scissors , you lose!")) {
+            return ("1 point to computer")
+
+        } else if (keepScoreVariable === ("rock beats scissors , you win!")) {
+            return ("1 point to human")
+        } else if (keepScoreVariable === ("paper beats rock , you win!")) {
+            return ("1 point to human") 
+        } else if (keepScoreVariable === ("scissors beats paper , you win!")) {
+            return ("1 point to human") 
+        } else {
+            return ("no points")
+        }
+    }    
+
+console.log(keepScore())
+
+let addPointsVariable = keepScore()
+
+function addPoints() {
+    if (addPointsVariable === "no points") {
+        return addHumanScore();
+    } else {
+        return addHumanScore();
+    }
+}
 
 
 
+console.log(addPoints())
 
 
 
@@ -234,10 +306,10 @@ function hey(name = " Patrik") {
 // new string starting with uppercase and followed by all lowercase letters.
 
 /*
-let x = "You Already KnoW ones";
-let y = x.slice(0, 1) 
+let p = "pApEr";
+let y = p.slice(0, 1) 
 let z = y.toUpperCase()
-let q = x.slice(1) 
+let q = p.slice(1) 
 let t = q.toLowerCase();
 
 let word = z + t;
@@ -251,5 +323,4 @@ function returnFirstLetterCaps() {
 
 
 console.log(returnFirstLetterCaps())
-
-console.log(randomNumber())*/
+*/
