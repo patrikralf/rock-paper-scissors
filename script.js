@@ -1,43 +1,9 @@
-const rock = ( "rock" );
-const paper = ( "paper" );
-const scissors = ( "scissors" );
-
-let humanScore = 0;
-let computerScore = 0;
-
-function addHumanScore() {
-    humanScore = 0;
-    return humanScore++;
-}
-
-function addCompuerScore() {
-    computerScore = 0;
-    return computerScore++;
-}
-
-
-// this one keeps score of each round
-function scoreBoard() {
-    return (`Current score is:
-human: ${humanScore} 
-computer: ${computerScore}`)
-}
-
-console.log(scoreBoard())
-
-
-// this outputs a number from  1 to 3
-//function randomNumber(min, max) {
-//    return Math.floor(Math.random() * (4 - 1) + 1)
-//}
-
+// generates random number for computer choice 
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (4 - 1) + 1)
 }
 const x = randomNumber(1, 3)
-//console.log(x)
 
-// this returns a string depending output as computer choice 
 function getComputerChoice() {
     if (x === 1 ) {
         return ("rock")
@@ -49,40 +15,17 @@ function getComputerChoice() {
         return (" huh? ")
     }
 }
+// ----------------------------------------------
+let newGame = alert ( 'round 1 ')
+newGame
 
-//console.log(getComputerChoice())
-//console.log(getComputerChoice())
-
-// this prompts human choice
-
-function getHumanChoice() {
-    let humanChoiceGood = prompt("Your choice: ") 
-    let humanLowerCase = humanChoiceGood.toLowerCase();
-
-    console.log("human choice is: " + humanLowerCase)
-        if (humanLowerCase === ("paper")) {
-            return ("paper")
-        } else if (humanLowerCase === ("rock")) { 
-            return ("rock")
-        } else if (humanLowerCase === ("scissors")) {
-            return ("scissors")
-        } else
-        return ("huh");
-    
-}
-
-
-
-
-
-
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
 
 // function initiates a round  
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+
 
 function playRound(humanChoice, computerChoice) {
-    //console.log(( humanChoice + " beats " + computerChoice))
     if (humanChoice === "paper" && computerChoice === "rock" ) {
         return ( humanChoice + " beats " + computerChoice + " , you win!" )
     } else if (humanChoice === "paper" && computerChoice === "scissors" ) {
@@ -94,11 +37,11 @@ function playRound(humanChoice, computerChoice) {
         return ( computerChoice + " beats " + humanChoice + " , you lose!" )
     } else if (humanChoice === "rock" && computerChoice === "scissors" ) {
         return ( humanChoice + " beats " + computerChoice + " , you win!" )
-  2  } else if (humanChoice === "rock" && computerChoice === "rock" ) {
+    } else if (humanChoice === "rock" && computerChoice === "rock" ) {
         return ( "it's a draw!")
 
 
- 3  } else if (humanChoice === "scissors" && computerChoice === "rock" ) {
+   } else if (humanChoice === "scissors" && computerChoice === "rock" ) {
         return ( computerChoice + " beats " + humanChoice + " , you lose!" )
     } else if (humanChoice === "scissors" && computerChoice === "paper" ) {
         return ( humanChoice + " beats " + computerChoice )
@@ -108,6 +51,351 @@ function playRound(humanChoice, computerChoice) {
         return ( "never heard of that..." )
     }
 }
+
+
+
+
+function getHumanChoice() {    
+    let humanChoiceGood = prompt('your choice: ') 
+    let humanLowerCase = humanChoiceGood.toLowerCase();
+
+    console.log(humanLowerCase)
+        if (humanLowerCase === ("paper")) {
+            return ("paper")
+        } else if (humanLowerCase === ("rock")) { 
+            return ("rock")
+        } else if (humanLowerCase === ("scissors")) {
+            return ("scissors")
+        } else
+        return ("huh");   
+}
+
+console.log(getComputerChoice())
+
+
+// -------- keeping score function
+
+let keepScoreVariable = playRound(humanSelection, computerSelection);
+console.log(keepScoreVariable)
+
+let humanScore = 0;
+let computerScore = 0;
+
+
+function keepScore() {
+        if (keepScoreVariable === ("scissors beats paper , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (keepScoreVariable === ("paper beats rock , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (keepScoreVariable === ("rock beats scissors , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+
+        } else if (keepScoreVariable === ("rock beats scissors , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (keepScoreVariable === ("paper beats rock , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (keepScoreVariable === ("scissors beats paper , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else {
+            return ("no points") + console.log(humanScore) + console.log(computerScore)
+        }
+    }
+    
+keepScore()
+
+
+
+
+
+function playGameTwo() {
+    alert ( "round 2" )
+    let newHumanSelection = getHumanChoice()
+    let humanSelection = newHumanSelection
+
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (4 - 1) + 1)
+    }
+    const x = randomNumber(1, 3)
+
+    function getComputerChoice() {
+        if (x === 1 ) {
+            return ("rock")
+        } else if (x === 2)  {
+            return ("paper")
+        } else if (x === 3 ) {
+            return ("scissors")
+        } else {
+            return (" huh? ")
+        }
+    }
+
+    let newComputerSelection = getComputerChoice()
+    computerSelection = newComputerSelection
+    console.log(newComputerSelection)
+
+    let newChoice = playRound(humanSelection, computerSelection)
+    let keepScoreVariable = newChoice;
+    console.log(keepScoreVariable)
+
+    function keepScore() {
+        if (newChoice === ("scissors beats paper , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("paper beats rock , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("rock beats scissors , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+
+        } else if (newChoice === ("rock beats scissors , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("paper beats rock , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("scissors beats paper , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else {
+            return ("no points") + console.log(humanScore) + console.log(computerScore)
+        }
+    }
+    
+    keepScore()
+}
+
+
+
+
+function playGameThree() {
+    alert ( "round 3" )
+    let newHumanSelection = getHumanChoice()
+    let humanSelection = newHumanSelection
+
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (4 - 1) + 1)
+    }
+    const x = randomNumber(1, 3)
+
+    function getComputerChoice() {
+        if (x === 1 ) {
+            return ("rock")
+        } else if (x === 2)  {
+            return ("paper")
+        } else if (x === 3 ) {
+            return ("scissors")
+        } else {
+            return (" huh? ")
+        }
+    }
+
+    let newComputerSelection = getComputerChoice()
+    computerSelection = newComputerSelection
+    console.log(newComputerSelection)
+
+    let newChoice = playRound(humanSelection, computerSelection)
+    let keepScoreVariable = newChoice;
+    console.log(keepScoreVariable)
+
+    function keepScore() {
+        if (newChoice === ("scissors beats paper , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("paper beats rock , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("rock beats scissors , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+
+        } else if (newChoice === ("rock beats scissors , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("paper beats rock , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("scissors beats paper , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else {
+            return ("no points") + console.log(humanScore) + console.log(computerScore)
+        }
+    }
+    
+    keepScore()
+}
+
+
+
+function playGameFour() {
+    alert ( "round 4" )
+    let newHumanSelection = getHumanChoice()
+    let humanSelection = newHumanSelection
+
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (4 - 1) + 1)
+    }
+    const x = randomNumber(1, 3)
+
+    function getComputerChoice() {
+        if (x === 1 ) {
+            return ("rock")
+        } else if (x === 2)  {
+            return ("paper")
+        } else if (x === 3 ) {
+            return ("scissors")
+        } else {
+            return (" huh? ")
+        }
+    }
+
+    let newComputerSelection = getComputerChoice()
+    computerSelection = newComputerSelection
+    console.log(newComputerSelection)
+
+    let newChoice = playRound(humanSelection, computerSelection)
+    let keepScoreVariable = newChoice;
+    console.log(keepScoreVariable)
+
+    function keepScore() {
+        if (newChoice === ("scissors beats paper , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("paper beats rock , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("rock beats scissors , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+
+        } else if (newChoice === ("rock beats scissors , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("paper beats rock , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("scissors beats paper , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else {
+            return ("no points") + console.log(humanScore) + console.log(computerScore)
+        }
+    }
+    
+    keepScore()
+}
+
+function playGameFive() {
+    alert ( "round 5" )
+    let newHumanSelection = getHumanChoice()
+    let humanSelection = newHumanSelection
+
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (4 - 1) + 1)
+    }
+    const x = randomNumber(1, 3)
+
+    function getComputerChoice() {
+        if (x === 1 ) {
+            return ("rock")
+        } else if (x === 2)  {
+            return ("paper")
+        } else if (x === 3 ) {
+            return ("scissors")
+        } else {
+            return (" huh? ")
+        }
+    }
+
+    let newComputerSelection = getComputerChoice()
+    computerSelection = newComputerSelection
+    console.log(newComputerSelection)
+
+    let newChoice = playRound(humanSelection, computerSelection)
+    let keepScoreVariable = newChoice;
+    console.log(keepScoreVariable)
+
+    function keepScore() {
+        if (newChoice === ("scissors beats paper , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("paper beats rock , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("rock beats scissors , you lose!")) {
+            return (computerScore++) + console.log(humanScore) + console.log(computerScore)
+
+        } else if (newChoice === ("rock beats scissors , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("paper beats rock , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else if (newChoice === ("scissors beats paper , you win!")) {
+            return (humanScore++) + console.log(humanScore) + console.log(computerScore)
+        } else {
+            return ("no points") + console.log(humanScore) + console.log(computerScore)
+        }
+    }
+    
+    
+    keepScore()
+
+    
+    computerScore
+
+    function winner() {
+        if ( humanScore > computerScore ) {
+            return ( "you win!" )
+        } else if ( computerScore > humanScore ) {
+                return ( "computer wins" )
+            } else return ( "no one wins?" )
+    }
+    
+    console.log(winner())
+    
+}
+
+playGameTwo()
+playGameThree()
+playGameFour()
+playGameFive()
+
+
+
+
+/*
+-needs to have a prompt for next round
+-needs to save the current score for next round
+-needs to add points based on result
+
+*/
+
+/*
+
+
+
+const rock = ( "rock" );
+const paper = ( "paper" );
+const scissors = ( "scissors" );
+
+
+
+/*
+// this one keeps score of each round
+function scoreBoard() {
+    return (`Current score is:
+human: ${humanScore} 
+computer: ${computerScore}`)
+}
+
+console.log(scoreBoard()) */
+
+
+// this outputs a number from  1 to 3
+//function randomNumber(min, max) {
+//    return Math.floor(Math.random() * (4 - 1) + 1)
+
+
+
+//console.log(x)
+
+// this returns a string depending output as computer choice 
+
+
+//console.log(getComputerChoice())
+//console.log(getComputerChoice())
+
+// this prompts human choice
+
+
+
+
+
+
+
+
+
+
 
 // play round function
 //1 function starts round
@@ -127,47 +415,11 @@ function playRound(humanChoice, computerChoice) {
 
 
 
-console.log( "computer choice is: " + getComputerChoice())
+
+
 //console.log(playRound(humanSelection, computerSelection))
 
-let keepScoreVariable = playRound(humanSelection, computerSelection);
 
-console.log(keepScoreVariable)
-
-function keepScore() {
-        if (keepScoreVariable === ("scissors beats paper , you lose!")) {
-            return ("1 point to computer")
-        } else if (keepScoreVariable === ("paper beats rock , you lose!")) {
-            return ("1 point to computer")
-        } else if (keepScoreVariable === ("rock beats scissors , you lose!")) {
-            return ("1 point to computer")
-
-        } else if (keepScoreVariable === ("rock beats scissors , you win!")) {
-            return ("1 point to human")
-        } else if (keepScoreVariable === ("paper beats rock , you win!")) {
-            return ("1 point to human") 
-        } else if (keepScoreVariable === ("scissors beats paper , you win!")) {
-            return ("1 point to human") 
-        } else {
-            return ("no points")
-        }
-    }    
-
-console.log(keepScore())
-
-let addPointsVariable = keepScore()
-
-function addPoints() {
-    if (addPointsVariable === "no points") {
-        return addHumanScore();
-    } else {
-        return addHumanScore();
-    }
-}
-
-
-
-console.log(addPoints())
 
 
 
@@ -323,4 +575,5 @@ function returnFirstLetterCaps() {
 
 
 console.log(returnFirstLetterCaps())
+
 */
